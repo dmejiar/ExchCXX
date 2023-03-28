@@ -69,8 +69,8 @@ else()
 
   FetchContent_Declare(
     libxc
-    GIT_REPOSITORY https://gitlab.com/libxc/libxc.git
-    GIT_TAG 6.1.0  # v6.1.0
+    GIT_REPOSITORY https://gitlab.com/dmejiar/libxc.git
+    GIT_TAG 6.1.0_qed  # v6.1.0
   )
   set( Libxc_VERSION 6.1.0 )
 

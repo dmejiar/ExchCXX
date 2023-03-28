@@ -136,6 +136,9 @@ public:
     return pimpl_->vtau_buffer_len( npts );
   }
 
+  int set_ext_params( std::vector<double> params ) {
+    return pimpl_->set_ext_params( params );
+  }
 
   template <typename... Args>
   void eval_exc( Args&&... args ) const {

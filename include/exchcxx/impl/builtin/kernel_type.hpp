@@ -72,6 +72,7 @@ public:
   virtual bool is_mgga()      const noexcept = 0;
   virtual bool is_hyb()       const noexcept = 0;
   virtual double hyb_exx()    const noexcept = 0;
+  virtual 
 
   inline bool is_polarized() const noexcept { 
     return polar_ == Spin::Polarized; 

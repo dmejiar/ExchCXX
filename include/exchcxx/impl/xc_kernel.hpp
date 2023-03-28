@@ -53,6 +53,7 @@
 #include <exchcxx/util/exchcxx_macros.hpp>
 #include <string>
 #include <memory>
+#include <vector>
 
 namespace ExchCXX {
 namespace detail {
@@ -83,7 +84,9 @@ struct XCKernelImpl {
     return supports_inc_interface_();
   }
 
-
+  int set_ext_params( std::vector<double> params ) {
+    return set_ext_params_ ( params );
+  }
 
 
   inline size_t rho_buffer_len( size_t npts ) const noexcept {
@@ -134,6 +137,7 @@ struct XCKernelImpl {
   void eval_exc_vxc_inc( Args&&... args ) {
     eval_exc_vxc_inc_( std::forward<Args>(args)... );
   }
+
  
        
     
@@ -179,6 +183,7 @@ private:
   virtual double hyb_exx_() const noexcept = 0;
 
   virtual bool supports_inc_interface_() const noexcept = 0;
+  virtual int set_ext_params_( std::vector<double> params ) = 0;
 
   // LDA interface
   virtual LDA_EXC_GENERATOR( eval_exc_ )                 const = 0;

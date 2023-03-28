@@ -203,6 +203,13 @@ bool LibxcKernelImpl::supports_inc_interface_() const noexcept {
   return false;
 }
 
+int LibxcKernelImpl::set_ext_params_( std::vector<double> params ) {
+  double* params_ = new double[params.size()];
+  std::copy(params.begin(), params.end(), params_);
+  xc_func_set_ext_params( &kernel_, params_ );
+  return 0;
+}
+
 
 // LDA interfaces
 LDA_EXC_GENERATOR( LibxcKernelImpl::eval_exc_ ) const {
