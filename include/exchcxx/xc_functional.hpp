@@ -163,7 +163,12 @@ public:
         return x + y.second.hyb_exx(); 
       }
     );
+  }
 
+  inline void set_ext_params( std::vector<double>& params ) {
+    throw_if_not_sane();
+    for( auto& k : kernels_ )
+      k.second.set_ext_params( params );
   }
 
 

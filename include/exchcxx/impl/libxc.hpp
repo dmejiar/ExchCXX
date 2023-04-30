@@ -72,6 +72,8 @@ class LibxcKernelImpl : public XCKernelImpl {
 
   bool supports_inc_interface_() const noexcept override;
 
+  int set_ext_params_( std::vector<double> params ) override;
+
   // LDA interface
   LDA_EXC_GENERATOR( eval_exc_ )                 const override;
   LDA_EXC_VXC_GENERATOR( eval_exc_vxc_ )         const override;

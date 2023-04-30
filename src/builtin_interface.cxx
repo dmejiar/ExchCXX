@@ -143,6 +143,10 @@ bool BuiltinKernelInterface::supports_inc_interface_() const noexcept {
   return true;
 }
 
+int BuiltinKernelInterface::set_ext_params_( std::vector<double> params ) {
+  return 0;
+}
+
 
 
 #define FORWARD_FOR_BUILTIN( APPROX, TYPE, func ) \
