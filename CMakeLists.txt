@@ -67,12 +67,16 @@ if( ${Libxc_FOUND} )
 
 else()
 
+  if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+	  set ( ENABLE_XHOST OFF CACHE BOOL "" FORCE )
+  endif()
+
   FetchContent_Declare(
     libxc
     GIT_REPOSITORY https://gitlab.com/libxc/libxc.git
-    GIT_TAG 6.1.0  # v6.1.0
+    GIT_TAG 6.2.2  # v6.2.2
   )
-  set( Libxc_VERSION 6.1.0 )
+  set( Libxc_VERSION 6.2.2 )
 
   set( OLD_BUILD_TESTING ${BUILD_TESTING} )
   set( BUILD_TESTING OFF CACHE BOOL "" FORCE )
@@ -92,6 +96,7 @@ else()
     set_target_properties(xc PROPERTIES UNITY_BUILD OFF)
     message(STATUS "Will disable unity-build for Libxc::xc")
   endif()
+
   
   set( BUILD_TESTING ${OLD_BUILD_TESTING} CACHE BOOL "" FORCE )
 
